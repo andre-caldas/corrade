@@ -1,0 +1,41 @@
+intf_libs = # Interface dependencies.
+impl_libs = # Implementation dependencies.
+#import xxxx_libs += libhello%lib{hello}
+
+lib{corrade}: {hxx ixx txx cxx}{**} $impl_libs $intf_libs
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root"
+
+#obja{*}: cxx.poptions += -DCORRADE_STATIC_BUILD
+#objs{*}: cxx.poptions += -DCORRADE_SHARED_BUILD
+
+# Export options.
+#
+lib{corrade}:
+{
+  cxx.export.poptions = "-I$out_root" "-I$src_root"
+  cxx.export.libs = $intf_libs
+}
+
+#liba{corrade}: cxx.export.poptions += -DCORRADE_STATIC
+#libs{corrade}: cxx.export.poptions += -DCORRADE_SHARED
+
+# For pre-releases use the complete version to make sure they cannot
+# be used in place of another pre-release or the final version. See
+# the version module for details on the version.* variable values.
+#
+if $version.pre_release
+  lib{corrade}: bin.lib.version = "-$version.project_id"
+else
+  lib{corrade}: bin.lib.version = "-$version.major.$version.minor"
+
+# Install into the Corrade/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{hxx ixx txx}{*}:
+{
+  install         = include/Corrade/
+  install.subdirs = true
+}

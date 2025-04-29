@@ -1,0 +1,11 @@
+: 1
+summary: Corrade: a multiplatform utility library written in C++11/C++14.
+
+#:
+#role: prerequisite
+#location: https://pkg.cppget.org/1/stable
+#trust: ...
+
+#:
+#role: prerequisite
+#location: https://git.build2.org/hello/libhello.git

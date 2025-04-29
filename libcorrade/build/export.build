@@ -1,0 +1,6 @@
+$out_root/
+{
+  include Corrade/
+}
+
+export $out_root/Corrade/$import.target

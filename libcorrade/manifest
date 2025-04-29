@@ -1,0 +1,18 @@
+: 1
+name: libcorrade
+
+# Original Corrade library uses YYYY.MM versioning.
+# We shall use those as major and minor.
+#
+version: 2025.04.0-a.0.z
+language: c++
+project: corrade
+summary: Corrade C++ utility library
+license: MIT ; MIT/Expat license
+package-description-file: PACKAGE-README.md
+url: https://magnum.graphics/corrade/
+email: info@magnum.graphics
+package-url: https://github.com/build2-packaging/corrade
+package-email: packaging@build2.org ; Mailing list.
+depends: * build2 >= 0.17.0
+depends: * bpkg >= 0.17.0
